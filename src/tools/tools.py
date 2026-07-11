@@ -1,0 +1,19 @@
+from langchain.tools import tool 
+import requests
+from dotenv import load_dotenv
+import os 
+from tavily import TavilyClient
+
+
+
+load_dotenv()
+
+tavily = TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
+
+
+
+def web_search(query: str) -> str:
+    """Search the web for recent and reliable information on a topic . Returns Titles , URLs and snippets."""
+    results = tavily.search(query=query, num_results=5)
+
+    print(results)
