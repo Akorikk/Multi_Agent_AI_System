@@ -3,7 +3,7 @@ langchain-core>=0.2.0
 langchain-community>=0.2.0
 langchain-openai>=0.1.0
 streamlit>=1.0.0
-langchain-groq==0.0.1
+langchain-groq>=1.0.0
 # Tavily Search Tool
 tavily-python>=0.3.0
 
@@ -18,3 +18,4 @@ lxml>=5.0.0
 python-dotenv>=1.0.0
 
 # Logging / de
+rich>=13.7.0

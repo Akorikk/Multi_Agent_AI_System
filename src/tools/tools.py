@@ -3,7 +3,7 @@ import requests
 from dotenv import load_dotenv
 import os 
 from tavily import TavilyClient
-
+from rich import print
 
 
 load_dotenv()
@@ -16,4 +16,8 @@ def web_search(query: str) -> str:
     """Search the web for recent and reliable information on a topic . Returns Titles , URLs and snippets."""
     results = tavily.search(query=query, num_results=5)
 
-    print(results)
+    out = []
+
+    for r in results["results"]:
+        out.append(f"Title: {r['title']}\nURL: {r['url']}\nSnippet: {r['content'][300]}\n")
+    return "\n".join(out)
